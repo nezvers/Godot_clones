@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://Paddle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player.gd" type="Script" id=3]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 320, 8 )
+
+[node name="Level" type="Node2D"]
+z_index = -1
+script = ExtResource( 1 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 320, 8 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 320, 352 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Walls"]
+margin_right = 640.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Walls"]
+margin_top = 344.0
+margin_right = 640.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Paddle" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 192 )
+script = ExtResource( 3 )
+
+[node name="Paddle2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 616, 192 )
+script = ExtResource( 3 )
+action_up = "p2_up"
+action_down = "p2_down"
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 192 )
