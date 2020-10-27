@@ -49,12 +49,12 @@ func _physics_process(delta:float)->void:
 func check_goal()->void:
 	if global_position.x < 0.0:
 		#Left win
-		Score.score_left += 1
+		Score.score_right += 1
 		Score.draw_score()
 		get_tree().reload_current_scene()
 	elif global_position.x > width:
 		#right win
-		Score.score_right += 1
+		Score.score_left += 1
 		Score.draw_score()
 		get_tree().reload_current_scene()
 
