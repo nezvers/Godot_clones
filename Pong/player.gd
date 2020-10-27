@@ -10,4 +10,4 @@ func _physics_process(_delta:float):
 	var dir:float
 	dir = Input.get_action_strength(action_down) - Input.get_action_strength(action_up)
 	velocity.y = dir * speed
-	move_and_slide(velocity, Vector2.UP, true, 1, 1, false)
+	move_and_collide(velocity * _delta, false)
