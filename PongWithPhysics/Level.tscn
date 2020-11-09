@@ -38,13 +38,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PaddleL" parent="." instance=ExtResource( 2 )]
-position = Vector2( 16, 192 )
+[node name="Paddle" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 192 )
 script = ExtResource( 3 )
 
-[node name="PaddleR" parent="." instance=ExtResource( 2 )]
-position = Vector2( 624, 192 )
-rotation = 3.14159
+[node name="Paddle2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 616, 192 )
 script = ExtResource( 5 )
 
 [node name="Ball" parent="." instance=ExtResource( 4 )]

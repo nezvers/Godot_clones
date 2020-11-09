@@ -1,18 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2, 40 )
+[ext_resource path="res://Paddle.gd" type="Script" id=1]
 
-[node name="Paddle" type="KinematicBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -2.0
-margin_top = -40.0
-margin_right = 2.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Paddle" type="Node2D"]
+script = ExtResource( 1 )
