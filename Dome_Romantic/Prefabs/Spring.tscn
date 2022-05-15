@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="Spring" type="DampedSpringJoint2D"]
+length = 1.0
+stiffness = 5.0

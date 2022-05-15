@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Utility/CollisionColorShape2D.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Player.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/Spring.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 10 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 15.0333
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+springScene = ExtResource( 3 )
+areaPath = NodePath("Area2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+script = ExtResource( 1 )
+color = Color( 0.501961, 0.164706, 0.384314, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )

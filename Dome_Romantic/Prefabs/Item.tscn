@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Utility/CollisionColorShape2D.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=3]
+rough = true
+absorbent = true
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.5
+
+[node name="Item" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource( 3 )
+gravity_scale = 0.26
+linear_damp = 1.411
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+script = ExtResource( 1 )
+color = Color( 0.443137, 0.431373, 0.619608, 1 )
