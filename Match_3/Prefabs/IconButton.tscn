@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="IconButton" type="ToolButton"]
+margin_right = 12.0
+margin_bottom = 22.0
+expand_icon = true
