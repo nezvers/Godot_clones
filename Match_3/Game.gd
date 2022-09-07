@@ -40,3 +40,8 @@ func SpawnIcon(x:int, y:int, type:int)->void:
 	
 	var item: = Item.new(type, icon)
 	grid[WIDTH * y + x] = item
+	
+	icon.connect("pressed", self, "IconPressed", [item])
+
+func IconPressed(item:Item)->void:
+	print(item)
