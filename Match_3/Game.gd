@@ -3,11 +3,9 @@ extends Control
 export (Array, Texture) var iconTextures: Array
 export var buttonPrefab:PackedScene
 
-const WIDTH: = 6
-const HEIGHT: = 6
+
 enum {MILK, APPLE, ORANGE, TOAST, BROKOLI, COCONUT, STAR, ICON_COUNT}
 
-var iconSize:float
 var grid: = []
 
 class Item:
@@ -17,30 +15,32 @@ class Item:
 		type = _type
 		button = _button
 
+
 func _ready()->void:
-	var size: = get_viewport_rect().size
-	iconSize = min(size.x, size.y) / HEIGHT
 	StartGrid()
 
 func StartGrid()->void:
 	grid.clear() # for level restart
-	grid.resize(WIDTH * HEIGHT) # allocate space
+	grid.resize(Global.WIDTH * Global.HEIGHT) # allocate space
 	
-	for y in HEIGHT:
-		for x in WIDTH:
-			SpawnIcon(x, y, randi() % ICON_COUNT)
+	for y in Global.HEIGHT:
+		for x in Global.WIDTH:
+			var index: int = Global.WIDTH * y + x
+			SpawnIcon(x, Global.HEIGHT - y -1, randi() % ICON_COUNT, index) # start from bottom
 
-func SpawnIcon(x:int, y:int, type:int)->void:
+func SpawnIcon(x:int, y:int, type:int, index:int)->void:
 	var icon:ToolButton = buttonPrefab.instance()
 	icon.icon = iconTextures[type]
 	icon.expand_icon = true
-	icon.rect_size = Vector2.ONE * iconSize
+	icon.rect_size = Vector2.ONE * Global.iconSize
+	icon.rect_position = Vector2(x * Global.iconSize, y * Global.iconSize)
+	icon.spawnIndex = index # icon will tween
 	add_child(icon)
-	icon.rect_position = Vector2(x * iconSize, y * iconSize)
 	
 	var item: = Item.new(type, icon)
-	grid[WIDTH * y + x] = item
+	grid[Global.WIDTH * y + x] = item
 	
+# warning-ignore:return_value_discarded
 	icon.connect("pressed", self, "IconPressed", [item])
 
 func IconPressed(item:Item)->void:

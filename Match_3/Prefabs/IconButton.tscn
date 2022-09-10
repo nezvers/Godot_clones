@@ -1,6 +1,9 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Prefabs/IconButton.gd" type="Script" id=1]
 
 [node name="IconButton" type="ToolButton"]
 margin_right = 12.0
 margin_bottom = 22.0
 expand_icon = true
+script = ExtResource( 1 )
