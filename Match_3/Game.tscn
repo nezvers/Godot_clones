@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Spawner.gd" type="Script" id=1]
 [ext_resource path="res://Assets/devilsworkshop - match-3-game-asset-ui-effects-free/characters/characters_0005.png" type="Texture" id=2]
 [ext_resource path="res://Assets/devilsworkshop - match-3-game-asset-ui-effects-free/characters/characters_0004.png" type="Texture" id=3]
 [ext_resource path="res://Assets/devilsworkshop - match-3-game-asset-ui-effects-free/characters/characters_0006.png" type="Texture" id=4]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/devilsworkshop - match-3-game-asset-ui-effects-free/characters/characters_0001.png" type="Texture" id=8]
 [ext_resource path="res://Prefabs/IconButton.tscn" type="PackedScene" id=9]
 
-[node name="Game" type="Control"]
+[node name="Spawner" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )

@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Prefabs/IconButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/devilsworkshop - match-3-game-asset-ui-effects-free/characters/characters_0001.png" type="Texture" id=2]
 
 [node name="IconButton" type="ToolButton"]
-margin_right = 12.0
+margin_right = 22.0
 margin_bottom = 22.0
+icon = ExtResource( 2 )
 expand_icon = true
 script = ExtResource( 1 )
